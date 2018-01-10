@@ -1,0 +1,36 @@
+.composition {
+  $parent: &;
+  position: relative;
+
+  &__photo {
+    border-radius: 2px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    position: absolute;
+    transition: all .2s ease-in-out;
+    width: 55%;
+
+    #{$parent}:hover &:not(:hover) {
+      transform: scale(.9);
+    }
+
+    &:hover {
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      transform: scale(1.5) translate(-5rem, -2rem);
+      z-index: 1;
+    }
+
+    &--1 {
+      left: 0;
+      top: -2rem;
+    }
+    &--2 {
+      right: 0;
+      top: 2rem;
+    }
+    &--3 {
+      left: 20%;
+      top: 10rem;
+    }
+  }
+
+}

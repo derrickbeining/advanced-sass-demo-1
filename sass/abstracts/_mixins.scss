@@ -1,0 +1,14 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin shadow-by-depth($depth: 0) {
+  $y: #{.2 * $depth}rem;
+  $blur: #{.5 * $depth}rem;
+  $opacity: .15 + (.05 * $depth);
+  box-shadow: 0 $y $blur rgba($color-black, $opacity);
+}

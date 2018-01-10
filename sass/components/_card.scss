@@ -1,0 +1,191 @@
+.card {
+  // FUNCTIONALITY
+  height: 52rem;
+  -moz-perspective: 150rem;
+  outline: 0;
+  perspective: 150rem;
+  position: relative;
+
+  &:focus &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:focus &__side--back {
+    transform: rotateY(0);
+  }
+
+  &:hover &__side {
+    @include shadow-by-depth(3);
+    // transform: translateY(-.5rem);
+  }
+
+  &__side {
+    @include shadow-by-depth(1);
+    backface-visibility: hidden;
+    border-radius: 3px;
+    // box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    font-size: 2rem;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    transition: transform .8s ease,
+                box-shadow .4s ease;
+    width: 100%;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(-180deg);
+
+      &--color-primary {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &--color-secondary {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &--color-tertiary {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+
+  //-------------- BACK SIDE ELEMENTS
+  // call-to-action
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: center;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+
+  //--------------- FRONT SIDE ELEMENTS
+  &__picture {
+    background-blend-mode: screen;
+    background-size: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    height: 23rem;
+
+    &--1 {
+      // url relative to the compiled css folder
+      background-image: linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      ),
+      url(../img/nat-5.jpg);
+    }
+    &--2 {
+        background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      ),
+      url(../img/nat-6.jpg);
+    }
+    &--3 {
+        background-image: linear-gradient(
+        to right bottom,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      ),
+      url(../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    color: $color-white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 2rem;
+    top: 12rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, .85),
+        rgba($color-secondary-dark, .85)
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, .85),
+        rgba($color-primary-dark, .85)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, .85),
+        rgba($color-tertiary-dark, .85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      margin: 0 auto;
+      width: 80%;
+
+      li {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light-2;
+        }
+      }
+    }
+  }
+}

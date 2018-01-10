@@ -1,0 +1,12 @@
+.heading-primary {
+
+  &--main {
+    animation: move-in-left 1.5s ease-in-out;
+    display: block;
+  }
+
+  &--sub {
+    animation: move-in-right 1.5s ease-in-out;
+    display: block;
+  }
+}

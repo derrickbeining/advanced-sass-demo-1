@@ -1,0 +1,19 @@
+{
+  "name": "advanced-sass-demo-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:styles": "rimraf css/styles.css & node-sass sass/main.scss css/style.css",
+    "build:styles:watch": "yarn build:styles -w",
+    "start:dev": "yarn build:styles:watch & live-server"
+  },
+  "author": "Derrick Beining (https://www.derrickbeining.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "node-sass": "^4.7.2",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {}
+}

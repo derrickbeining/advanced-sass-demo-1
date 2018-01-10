@@ -1,0 +1,49 @@
+.row {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $grid-width;
+
+  &:not(:last-child) {
+    margin-bottom: $grid-gutter-h;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $grid-gutter-v;
+    }
+  }
+
+  .col-1-of-2 {
+    // has one gutter, so subtract 1 gutter from 100% width of parent width
+    width: calc((1 / 2) * (100% - #{$grid-gutter-v}));
+  }
+
+  .col-1-of-3 {
+    // has 2 gutters, so subtract 2 gutters from 100% width of parent
+    width: calc((1 / 3) * (100% - 2 * #{$grid-gutter-v}));
+  }
+
+  .col-2-of-3 {
+    //     double      1 of 3,                       plus the gutter between 2 thirds
+    width: calc(2 * ( (1 / 3) * (100% - 2 * #{$grid-gutter-v}) ) + #{$grid-gutter-v});
+  }
+
+  .col-1-of-4 {
+    // has 3 gutters, so subtract 3 gutters from 100% of parent width, then quarter
+    width: calc((1 / 4) * (100% - 3 * #{$grid-gutter-v}));
+  }
+
+  .col-2-of-4 {
+    //     double      1 of 4,                        plus the gutter between 2 fourths
+    width: calc(2 * ( (1 / 4) * (100% - 3 * #{$grid-gutter-v}) ) + #{$grid-gutter-v});
+  }
+
+  .col-3-of-4 {
+    //     triple      1 of 4,                        plus the gutters between 3 fourths
+    width: calc(3 * ( (1 / 4) * (100% - 3 * #{$grid-gutter-v}) ) + (2 * #{$grid-gutter-v}));
+  }
+
+
+}
